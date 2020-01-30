@@ -1,0 +1,107 @@
+<?php
+
+namespace PHPSTORM_META
+{
+    use Nette\Database\Context;
+    use Nette\Database\Table\ActiveRow;
+    use Nette\Database\Table\Selection;
+    use Nette\Utils\DateTime;
+
+    class BonusActiveRow extends ActiveRow
+    {
+        /** @var int */
+        public $id;
+
+        /** @var SeasonActiveRow|null */
+        public $season;
+
+        /** @var int|null */
+        public $season_id;
+
+        /** @var ShowActiveRow */
+        public $show;
+
+        /** @var int */
+        public $show_id;
+
+        /** @var string */
+        public $title;
+    }
+
+    class BonusSelection extends Selection
+    {
+        /** @return BonusActiveRow */
+        public function current()
+        {
+            return parent::current();
+        }
+
+        /** @return BonusActiveRow */
+        public function fetch()
+        {
+            return parent::fetch();
+        }
+    }
+
+    class SeasonActiveRow extends ActiveRow
+    {
+        /** @var int */
+        public $id;
+
+        /** @var ShowActiveRow */
+        public $show;
+
+        /** @var int */
+        public $show_id;
+
+        /** @var string */
+        public $title;
+    }
+
+    class SeasonSelection extends Selection
+    {
+        /** @return SeasonActiveRow */
+        public function current()
+        {
+            return parent::current();
+        }
+
+        /** @return SeasonActiveRow */
+        public function fetch()
+        {
+            return parent::fetch();
+        }
+    }
+
+    class ShowActiveRow extends ActiveRow
+    {
+        /** @var int */
+        public $id;
+
+        /** @var string */
+        public $title;
+    }
+
+    class ShowSelection extends Selection
+    {
+        /** @return ShowActiveRow */
+        public function current()
+        {
+            return parent::current();
+        }
+
+        /** @return ShowActiveRow */
+        public function fetch()
+        {
+            return parent::fetch();
+        }
+    }
+
+    override(Context::table(),
+        map([
+            'bonuses' => '\PHPSTORM_META\BonusSelection',
+            'seasons' => '\PHPSTORM_META\SeasonSelection',
+            'shows' => '\PHPSTORM_META\ShowSelection',
+        ])
+    );
+}

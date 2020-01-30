@@ -1,0 +1,27 @@
+{
+    "name": "lulco/phpstorm-meta-generator",
+    "description": "PhpStorm meta generator",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Michal Lulco",
+            "email": "michal.lulco@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">= 7.1",
+        "symfony/console": "^4.4 | ^5.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": ">7.1",
+        "nette/database": "^2.4 | ^3.0",
+        "nette/di": "^2.4 | ^3.0"
+    },
+    "autoload": {
+        "classmap": ["src/"]
+    },
+    "autoload-dev": {
+        "classmap": ["tests/"]
+    }
+}
